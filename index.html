@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Asta Technologies Limited | Web, Branding, Product &amp; Social Media Design</title>
+<meta name="description" content="Asta Technologies Limited is a Nigerian digital design and technology company offering web design and development, branding, product design and social media designs.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* =========================================================
+   ASTA TECHNOLOGIES LIMITED - WEBSITE STYLES
+   ========================================================= */
+:root{
+  --blue:#1C2BC2;
+  --cyan:#00AEEB;
+  --green:#175925;
+  --ink:#0B1533;
+  --text:#4A5468;
+  --line:#E6EAF1;
+  --soft:#F5F7FB;
+  --white:#fff;
+  --radius:18px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{font-family:'Poppins',Arial,Helvetica,sans-serif;color:var(--text);background:var(--white);line-height:1.7;-webkit-font-smoothing:antialiased}
+img,svg{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+.container{width:100%;max-width:1140px;margin:0 auto;padding:0 24px}
+section{padding:96px 0}
+
+/* ---------- Shared headings ---------- */
+.eyebrow{display:inline-block;font-size:.78rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan);margin-bottom:12px}
+.section-head{max-width:620px;margin-bottom:56px}
+.section-head.center{text-align:center;margin-left:auto;margin-right:auto}
+h1,h2,h3{color:var(--ink);line-height:1.2;font-weight:700}
+h2{font-size:clamp(1.8rem,3.4vw,2.5rem);margin-bottom:16px}
+h2::after{content:"";display:block;width:44px;height:4px;border-radius:4px;background:var(--blue);margin-top:16px}
+.section-head.center h2::after{margin-left:auto;margin-right:auto}
+.section-head p{font-size:1.02rem}
+
+/* ---------- Buttons ---------- */
+.btn{display:inline-block;padding:14px 30px;border-radius:50px;font-weight:600;font-size:.95rem;transition:.25s;border:2px solid transparent;cursor:pointer;font-family:inherit}
+.btn-primary{background:var(--blue);color:#fff;box-shadow:0 10px 24px rgba(28,43,194,.25)}
+.btn-primary:hover{background:#141fa0;transform:translateY(-2px)}
+.btn-outline{border-color:var(--line);color:var(--ink);background:#fff}
+.btn-outline:hover{border-color:var(--blue);color:var(--blue)}
+
+/* ---------- Header / Navigation ---------- */
+header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:74px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand svg{width:38px;height:auto}
+.brand span{font-weight:700;color:var(--ink);font-size:1.02rem;letter-spacing:.02em;line-height:1.15}
+.brand small{display:block;font-weight:500;font-size:.62rem;letter-spacing:.3em;color:var(--text)}
+.nav-links{display:flex;align-items:center;gap:34px}
+.nav-links a{font-size:.9rem;font-weight:500;color:var(--text);transition:.2s}
+.nav-links a:hover{color:var(--blue)}
+.nav-links .btn{padding:10px 24px;color:#fff}
+.nav-links .btn:hover{color:#fff}
+.menu-toggle,.menu-icon{display:none}
+
+/* ---------- Hero ---------- */
+.hero{padding:110px 0 100px;background:
+  radial-gradient(700px 360px at 90% 10%,rgba(0,174,235,.13),transparent 70%),
+  radial-gradient(600px 320px at 0% 100%,rgba(28,43,194,.08),transparent 70%),#fff}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center}
+.hero h1{font-size:clamp(2.3rem,5vw,3.6rem);margin-bottom:22px;letter-spacing:-.01em}
+.hero h1 em{font-style:normal;color:var(--blue)}
+.hero p{font-size:1.08rem;max-width:520px;margin-bottom:34px}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+.hero-badges{display:flex;gap:26px;margin-top:44px;flex-wrap:wrap;font-size:.85rem;font-weight:500;color:var(--ink)}
+.hero-badges span::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--green);margin-right:9px}
+.hero-art{position:relative;display:flex;justify-content:center}
+.hero-card{width:100%;max-width:420px;aspect-ratio:1/1;border-radius:32px;background:linear-gradient(145deg,#fff,var(--soft));border:1px solid var(--line);box-shadow:0 30px 70px rgba(11,21,51,.10);display:flex;align-items:center;justify-content:center}
+.hero-card svg{width:58%}
+.float{position:absolute;background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 18px;font-size:.8rem;font-weight:600;color:var(--ink);box-shadow:0 14px 34px rgba(11,21,51,.10)}
+.float i{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:8px}
+.f1{top:34px;left:-10px}.f1 i{background:var(--cyan)}
+.f2{bottom:60px;right:-10px}.f2 i{background:var(--blue)}
+.f3{bottom:-8px;left:40px}.f3 i{background:var(--green)}
+
+/* ---------- About ---------- */
+.about{background:var(--soft)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.about-box{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:36px}
+.about-box h3{font-size:1.1rem;margin-bottom:18px}
+.fact{display:flex;justify-content:space-between;gap:20px;padding:14px 0;border-bottom:1px solid var(--line);font-size:.92rem}
+.fact:last-child{border-bottom:0}
+.fact b{color:var(--ink);font-weight:500;text-align:right}
+.about p{margin-bottom:18px}
+.mv{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:28px}
+.mv div{padding:22px;border-radius:14px;background:#fff;border:1px solid var(--line)}
+.mv div:first-child{border-top:3px solid var(--cyan)}
+.mv div:last-child{border-top:3px solid var(--blue)}
+.mv h3{font-size:.95rem;margin-bottom:6px}
+.mv p{font-size:.86rem;margin:0}
+
+/* ---------- Services ---------- */
+.services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:34px 28px;transition:.3s;position:relative;overflow:hidden}
+.card::before{content:"";position:absolute;left:0;top:0;width:100%;height:4px;background:var(--c,var(--blue))}
+.card:hover{transform:translateY(-6px);box-shadow:0 24px 50px rgba(11,21,51,.09)}
+.card .num{font-size:2rem;font-weight:300;color:var(--c,var(--blue));line-height:1;margin-bottom:22px}
+.card h3{font-size:1.1rem;margin-bottom:12px}
+.card p{font-size:.9rem;margin-bottom:18px}
+.card li{font-size:.84rem;padding-left:18px;position:relative;margin-bottom:6px;color:var(--ink)}
+.card li::before{content:"";position:absolute;left:0;top:11px;width:6px;height:6px;border-radius:50%;background:var(--c,var(--blue))}
+.c1{--c:var(--cyan)}.c2{--c:var(--blue)}.c3{--c:var(--green)}.c4{--c:var(--ink)}
+
+/* ---------- Work / Portfolio ---------- */
+.work{background:var(--soft)}
+.work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.project{background:#fff;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);transition:.3s}
+.project:hover{transform:translateY(-6px);box-shadow:0 24px 50px rgba(11,21,51,.09)}
+.project .thumb{aspect-ratio:4/3;background:linear-gradient(135deg,var(--a),var(--b));display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.92);font-weight:600;letter-spacing:.04em;text-align:center;padding:20px;overflow:hidden}
+.project .thumb img{width:100%;height:100%;object-fit:cover}
+.project .info{padding:20px 24px}
+.project h3{font-size:1rem;margin-bottom:2px}
+.project p{font-size:.82rem}
+.p1{--a:#00AEEB;--b:#1C2BC2}.p2{--a:#C89B5F;--b:#6B4E2E}.p3{--a:#39B54A;--b:#016B61}
+.p4{--a:#7A1017;--b:#2B0507}.p5{--a:#1C2BC2;--b:#0B1533}.p6{--a:#175925;--b:#0B1533}
+
+/* ---------- Process ---------- */
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:20px;counter-reset:s}
+.step{text-align:center;padding:10px}
+.step::before{counter-increment:s;content:counter(s);display:flex;align-items:center;justify-content:center;width:52px;height:52px;margin:0 auto 18px;border-radius:50%;background:var(--c);color:#fff;font-weight:600}
+.step:nth-child(1){--c:var(--cyan)}.step:nth-child(2){--c:var(--blue)}.step:nth-child(3){--c:var(--green)}.step:nth-child(4){--c:var(--cyan)}.step:nth-child(5){--c:var(--blue)}
+.step h3{font-size:1rem;margin-bottom:8px}
+.step p{font-size:.85rem}
+
+/* ---------- Why us ---------- */
+.why{background:var(--ink);color:#B9C1D6}
+.why h2{color:#fff}
+.why .eyebrow{color:var(--cyan)}
+.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.why-item{padding:28px;border:1px solid rgba(255,255,255,.12);border-radius:var(--radius);background:rgba(255,255,255,.03)}
+.why-item h3{color:#fff;font-size:1.02rem;margin-bottom:10px}
+.why-item p{font-size:.87rem}
+.why-item::before{content:"";display:block;width:30px;height:4px;border-radius:4px;background:var(--cyan);margin-bottom:20px}
+
+/* ---------- Team ---------- */
+.team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.member{text-align:center;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:32px 24px;transition:.3s}
+.member:hover{transform:translateY(-6px);box-shadow:0 24px 50px rgba(11,21,51,.09)}
+.photo{width:140px;height:140px;border-radius:50%;margin:0 auto 22px;overflow:hidden;background:var(--soft);border:4px solid #fff;box-shadow:0 0 0 2px var(--line);display:flex;align-items:flex-end;justify-content:center}
+.photo img{width:100%;height:100%;object-fit:cover}
+.photo svg{width:70%;color:#C4CCDB}
+.member h3{font-size:1.05rem;margin-bottom:2px}
+.role{display:block;font-size:.78rem;font-weight:600;color:var(--blue);letter-spacing:.06em;text-transform:uppercase;margin-bottom:14px}
+.member p{font-size:.86rem}
+
+/* ---------- Contact ---------- */
+.contact{background:var(--soft)}
+.contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px}
+.info-item{display:flex;gap:18px;margin-bottom:26px}
+.info-item .dot{flex:0 0 46px;height:46px;border-radius:14px;background:#fff;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--blue);font-weight:700;font-size:.85rem}
+.info-item h3{font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:var(--cyan);margin-bottom:2px}
+.info-item p,.info-item a{font-size:.94rem;color:var(--ink);word-break:break-word}
+.socials{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+.socials a{padding:9px 20px;border:1px solid var(--line);border-radius:50px;background:#fff;font-size:.85rem;font-weight:500;color:var(--ink);transition:.2s}
+.socials a:hover{border-color:var(--blue);color:var(--blue)}
+form{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:38px}
+form h3{font-size:1.2rem;margin-bottom:22px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+label{display:block;font-size:.8rem;font-weight:500;color:var(--ink);margin-bottom:6px}
+input,select,textarea{width:100%;padding:13px 16px;border:1px solid var(--line);border-radius:12px;font-family:inherit;font-size:.92rem;color:var(--ink);background:var(--soft);margin-bottom:18px;transition:.2s}
+input:focus,select:focus,textarea:focus{outline:0;border-color:var(--blue);background:#fff;box-shadow:0 0 0 4px rgba(28,43,194,.08)}
+textarea{min-height:130px;resize:vertical}
+form .btn{width:100%}
+
+/* ---------- Footer ---------- */
+footer{background:var(--ink);color:#9AA4BC;padding:56px 0 28px}
+.foot{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;padding-bottom:34px;border-bottom:1px solid rgba(255,255,255,.1)}
+footer .brand span{color:#fff}
+footer .brand small{color:#9AA4BC}
+footer p{font-size:.85rem;max-width:300px;margin-top:14px}
+.foot ul{display:flex;gap:26px;flex-wrap:wrap;font-size:.88rem;align-items:flex-start}
+.foot ul a:hover{color:#fff}
+.copy{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;padding-top:24px;font-size:.78rem}
+
+/* ---------- Responsive ---------- */
+@media (max-width:1000px){
+  .services-grid,.team-grid,.why-grid{grid-template-columns:repeat(2,1fr)}
+  .steps{grid-template-columns:repeat(3,1fr);row-gap:30px}
+  .work-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:860px){
+  section{padding:72px 0}
+  .hero-grid,.about-grid,.contact-grid{grid-template-columns:1fr;gap:44px}
+  .hero-art{order:-1}
+  .hero-card{max-width:300px}
+  .f1{left:0}.f2{right:0}
+  .menu-icon{display:flex;flex-direction:column;gap:5px;cursor:pointer;padding:8px}
+  .menu-icon span{width:24px;height:2px;background:var(--ink);border-radius:2px;transition:.25s}
+  .nav-links{position:absolute;top:74px;left:0;right:0;background:#fff;flex-direction:column;align-items:flex-start;gap:0;padding:0 24px;max-height:0;overflow:hidden;border-bottom:1px solid transparent;transition:max-height .3s}
+  .nav-links a{padding:14px 0;width:100%;border-bottom:1px solid var(--line)}
+  .nav-links .btn{margin:16px 0 22px;width:auto;text-align:center}
+  .menu-toggle:checked ~ .nav-links{max-height:480px;border-bottom-color:var(--line)}
+  .menu-toggle:checked ~ .menu-icon span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .menu-toggle:checked ~ .menu-icon span:nth-child(2){opacity:0}
+  .menu-toggle:checked ~ .menu-icon span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+}
+@media (max-width:600px){
+  .services-grid,.team-grid,.why-grid,.work-grid,.row,.mv{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr 1fr}
+  .hero{padding:70px 0 70px}
+  form{padding:26px}
+}
+</style>
+</head>
+
+<body>
+
+<!-- =================== HEADER =================== -->
+<header>
+  <div class="container nav">
+    <a href="#home" class="brand" aria-label="Asta Technologies Limited">
+      <!-- Logo mark (inline SVG, no image file needed) -->
+      <svg viewBox="0 0 400 360" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <polygon fill="#00AEEB" points="173,0 220,28 228,138 0,294"/>
+        <polygon fill="#1C2BC2" points="231,21 398,318 351,345 252,297"/>
+        <polygon fill="#175925" points="100,242 351,358 10,358 10,304"/>
+      </svg>
+      <span>ASTA TECHNOLOGIES<small>LIMITED</small></span>
+    </a>
+
+    <input type="checkbox" id="menu" class="menu-toggle" aria-label="Toggle menu">
+    <label for="menu" class="menu-icon"><span></span><span></span><span></span></label>
+
+    <nav class="nav-links">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#work">Our Work</a>
+      <a href="#team">Team</a>
+      <a href="#contact" class="btn btn-primary">Get in Touch</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- =================== HERO =================== -->
+<section class="hero" id="home">
+  <div class="container hero-grid">
+    <div>
+      <span class="eyebrow">Digital design &amp; technology company</span>
+      <h1>Design that gives your <em>brand a voice.</em></h1>
+      <p>We design and build websites, brands, digital products and social media content that help businesses in Nigeria and beyond look professional and grow with confidence.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary">Start a Project</a>
+        <a href="#services" class="btn btn-outline">Our Services</a>
+      </div>
+      <div class="hero-badges">
+        <span>CAC Registered</span>
+        <span>Clear timelines</span>
+        <span>Transparent pricing</span>
+      </div>
+    </div>
+
+    <div class="hero-art">
+      <div class="hero-card">
+        <svg viewBox="0 0 400 360" xmlns="http://www.w3.org/2000/svg" aria-label="Asta Technologies logo">
+          <polygon fill="#00AEEB" points="173,0 220,28 228,138 0,294"/>
+          <polygon fill="#1C2BC2" points="231,21 398,318 351,345 252,297"/>
+          <polygon fill="#175925" points="100,242 351,358 10,358 10,304"/>
+        </svg>
+      </div>
+      <div class="float f1"><i></i>Web Design</div>
+      <div class="float f2"><i></i>Branding</div>
+      <div class="float f3"><i></i>Product Design</div>
+    </div>
+  </div>
+</section>
+
+<!-- =================== ABOUT =================== -->
+<section class="about" id="about">
+  <div class="container about-grid">
+    <div>
+      <span class="eyebrow">About us</span>
+      <h2>Who we are</h2>
+      <p>Asta Technologies Limited is a Nigerian digital design and technology company registered with the Corporate Affairs Commission (CAC). We help businesses, organisations and individuals build a strong, professional presence online through thoughtful design and dependable technology.</p>
+      <p>By keeping web, brand, product and social media design under one roof, we make sure every touchpoint a customer sees looks and feels like it belongs to the same brand.</p>
+      <div class="mv">
+        <div>
+          <h3>Our Vision</h3>
+          <p>To be a trusted name in African digital design, known for work that helps brands grow with confidence.</p>
+        </div>
+        <div>
+          <h3>Our Mission</h3>
+          <p>To deliver creative, reliable and affordable design and technology solutions that turn ideas into strong brands.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="about-box">
+      <h3>Company at a glance</h3>
+      <div class="fact"><span>Company name</span><b>Asta Technologies Limited</b></div>
+      <div class="fact"><span>RC Number</span><b>7912809</b></div>
+      <div class="fact"><span>Registration</span><b>CAC, Nigeria</b></div>
+      <div class="fact"><span>Industry</span><b>Digital design &amp; technology</b></div>
+      <div class="fact"><span>Location</span><b>Maiduguri, Borno State</b></div>
+    </div>
+  </div>
+</section>
+
+<!-- =================== SERVICES =================== -->
+<section id="services">
+  <div class="container">
+    <div class="section-head center">
+      <span class="eyebrow">What we do</span>
+      <h2>Our services</h2>
+      <p>Four connected services that cover everything a modern brand needs to look professional and work online.</p>
+    </div>
+
+    <div class="services-grid">
+      <article class="card c1">
+        <div class="num">01</div>
+        <h3>Web Design &amp; Development</h3>
+        <p>Fast, responsive websites built to represent your business and convert visitors into customers.</p>
+        <ul>
+          <li>Business websites</li>
+          <li>E-commerce stores</li>
+          <li>Landing pages</li>
+          <li>Web applications</li>
+        </ul>
+      </article>
+
+      <article class="card c2">
+        <div class="num">02</div>
+        <h3>Branding</h3>
+        <p>Memorable logos and complete visual identities that make your business instantly recognisable.</p>
+        <ul>
+          <li>Logo design</li>
+          <li>Brand identity</li>
+          <li>Brand guidelines</li>
+          <li>Stationery &amp; print</li>
+        </ul>
+      </article>
+
+      <article class="card c3">
+        <div class="num">03</div>
+        <h3>Product Design</h3>
+        <p>Intuitive UI/UX for apps, dashboards and digital products that people enjoy using.</p>
+        <ul>
+          <li>UI &amp; UX design</li>
+          <li>Wireframes &amp; prototypes</li>
+          <li>Mobile app screens</li>
+          <li>Design systems</li>
+        </ul>
+      </article>
+
+      <article class="card c4">
+        <div class="num">04</div>
+        <h3>Social Media Designs</h3>
+        <p>Consistent, eye-catching content that keeps your brand active and engaging online.</p>
+        <ul>
+          <li>Post &amp; carousel designs</li>
+          <li>Campaign graphics</li>
+          <li>Ad creatives</li>
+          <li>Reusable templates</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- =================== OUR WORK =================== -->
+<!--
+  HOW TO ADD YOUR OWN IMAGES:
+  Inside each ".thumb" box below, replace the text with an image tag, for example:
+  <div class="thumb p1"><img src="images/afrifusion.jpg" alt="Afrifusion Systems logo"></div>
+  Upload the picture into an "images" folder on your hosting, next to this index.html file.
+-->
+<section class="work" id="work">
+  <div class="container">
+    <div class="section-head center">
+      <span class="eyebrow">Portfolio</span>
+      <h2>Selected projects</h2>
+      <p>A look at some of the brands and products we have designed for our clients.</p>
+    </div>
+
+    <div class="work-grid">
+      <article class="project">
+        <div class="thumb p1">Afrifusion Systems Ltd</div>
+        <div class="info"><h3>Afrifusion Systems Ltd</h3><p>Logo &amp; social media design</p></div>
+      </article>
+
+      <article class="project">
+        <div class="thumb p2">Gadanju Luxury Brand</div>
+        <div class="info"><h3>Gadanju Luxury Brand</h3><p>Logo, flyer &amp; brand identity</p></div>
+      </article>
+
+      <article class="project">
+        <div class="thumb p3">GreenHills</div>
+        <div class="info"><h3>GreenHills</h3><p>Logo, colour palette &amp; social design</p></div>
+      </article>
+
+      <article class="project">
+        <div class="thumb p4">Lighten Plus</div>
+        <div class="info"><h3>Lighten Plus Grill &amp; Refreshment Joint</h3><p>Product promotion designs</p></div>
+      </article>
+
+      <article class="project">
+        <div class="thumb p5">Your project here</div>
+        <div class="info"><h3>Project title</h3><p>Short description</p></div>
+      </article>
+
+      <article class="project">
+        <div class="thumb p6">Your project here</div>
+        <div class="info"><h3>Project title</h3><p>Short description</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- =================== PROCESS =================== -->
+<section id="process">
+  <div class="container">
+    <div class="section-head center">
+      <span class="eyebrow">How we work</span>
+      <h2>Our process</h2>
+      <p>A simple, transparent approach from the first conversation to final delivery.</p>
+    </div>
+
+    <div class="steps">
+      <div class="step"><h3>Discover</h3><p>We listen and learn about your goals and audience.</p></div>
+      <div class="step"><h3>Plan</h3><p>We agree on scope, timeline and cost upfront.</p></div>
+      <div class="step"><h3>Design</h3><p>We create concepts and share them for feedback.</p></div>
+      <div class="step"><h3>Build</h3><p>We refine, develop and test until it works well.</p></div>
+      <div class="step"><h3>Deliver</h3><p>We launch, hand over files and support you.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- =================== WHY US =================== -->
+<section class="why">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Why choose us</span>
+      <h2>Work you can rely on</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-item"><h3>One team, one look</h3><p>Web, brand, product and social design all stay consistent.</p></div>
+      <div class="why-item"><h3>Clear communication</h3><p>Regular updates and honest timelines throughout.</p></div>
+      <div class="why-item"><h3>Quality focused</h3><p>Clean, modern work that is tested before delivery.</p></div>
+      <div class="why-item"><h3>Fair and transparent</h3><p>Clear pricing agreed upfront, with no hidden costs.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- =================== TEAM =================== -->
+<!--
+  HOW TO ADD TEAM PHOTOS:
+  In each member card, replace the whole <svg> placeholder inside <div class="photo"> with:
+  <img src="images/team-1.jpg" alt="Full Name">
+  Then change the name, role and short bio text. Use square photos for best results.
+-->
+<section id="team">
+  <div class="container">
+    <div class="section-head center">
+      <span class="eyebrow">Our team</span>
+      <h2>Meet the people behind Asta</h2>
+      <p>A small, dedicated team of designers and developers who care about doing great work.</p>
+    </div>
+
+    <div class="team-grid">
+
+      <!-- MEMBER 1 -->
+      <article class="member">
+        <div class="photo">
+          <svg viewBox="0 0 100 100" fill="currentColor" aria-hidden="true"><circle cx="50" cy="36" r="18"/><path d="M12 100c0-22 17-38 38-38s38 16 38 38z"/></svg>
+        </div>
+        <h3>Team Member Name</h3>
+        <span class="role">Job Title</span>
+        <p>Write a short two-line bio here about this team member's experience and what they do at Asta.</p>
+      </article>
+
+      <!-- MEMBER 2 -->
+      <article class="member">
+        <div class="photo">
+          <svg viewBox="0 0 100 100" fill="currentColor" aria-hidden="true"><circle cx="50" cy="36" r="18"/><path d="M12 100c0-22 17-38 38-38s38 16 38 38z"/></svg>
+        </div>
+        <h3>Team Member Name</h3>
+        <span class="role">Job Title</span>
+        <p>Write a short two-line bio here about this team member's experience and what they do at Asta.</p>
+      </article>
+
+      <!-- MEMBER 3 -->
+      <article class="member">
+        <div class="photo">
+          <svg viewBox="0 0 100 100" fill="currentColor" aria-hidden="true"><circle cx="50" cy="36" r="18"/><path d="M12 100c0-22 17-38 38-38s38 16 38 38z"/></svg>
+        </div>
+        <h3>Team Member Name</h3>
+        <span class="role">Job Title</span>
+        <p>Write a short two-line bio here about this team member's experience and what they do at Asta.</p>
+      </article>
+
+      <!-- MEMBER 4 -->
+      <article class="member">
+        <div class="photo">
+          <svg viewBox="0 0 100 100" fill="currentColor" aria-hidden="true"><circle cx="50" cy="36" r="18"/><path d="M12 100c0-22 17-38 38-38s38 16 38 38z"/></svg>
+        </div>
+        <h3>Team Member Name</h3>
+        <span class="role">Job Title</span>
+        <p>Write a short two-line bio here about this team member's experience and what they do at Asta.</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- =================== CONTACT =================== -->
+<section class="contact" id="contact">
+  <div class="container contact-grid">
+
+    <div>
+      <span class="eyebrow">Contact us</span>
+      <h2>Let's build something great together</h2>
+      <p style="margin-bottom:34px">Tell us about your project. We will get back to you with ideas, a timeline and a clear quote.</p>
+
+      <div class="info-item">
+        <div class="dot">@</div>
+        <div><h3>Email</h3><a href="mailto:astatechnologies1@gmail.com">astatechnologies1@gmail.com</a></div>
+      </div>
+
+      <div class="info-item">
+        <div class="dot">Tel</div>
+        <div><h3>Phone</h3><a href="tel:+2348164397900">+234 816 439 7900</a></div>
+      </div>
+
+      <div class="info-item">
+        <div class="dot">Loc</div>
+        <div><h3>Address</h3><p>No. F04 (Block F), Kashim Shettima Shopping Complex, Bama Road, Opposite University of Maiduguri, Maiduguri, Borno State, Nigeria.</p></div>
+      </div>
+
+      <div class="info-item">
+        <div class="dot">RC</div>
+        <div><h3>RC Number</h3><p>7912809</p></div>
+      </div>
+
+      <!-- Replace each "#" below with your real page link -->
+      <div class="socials">
+        <a href="#" target="_blank" rel="noopener">Facebook</a>
+        <a href="#" target="_blank" rel="noopener">X (Twitter)</a>
+        <a href="#" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+
+    <!--
+      This form opens the visitor's email app and sends to your email address.
+      It works without any server code. When you later want messages delivered
+      directly (without the email app opening), connect it to a form service
+      such as Formspree and replace the action link.
+    -->
+    <form action="mailto:astatechnologies1@gmail.com" method="post" enctype="text/plain">
+      <h3>Send us a message</h3>
+      <div class="row">
+        <div><label for="name">Full name</label><input type="text" id="name" name="Name" placeholder="Your name" required></div>
+        <div><label for="email">Email</label><input type="email" id="email" name="Email" placeholder="you@example.com" required></div>
+      </div>
+      <label for="service">Service needed</label>
+      <select id="service" name="Service">
+        <option>Web Design &amp; Development</option>
+        <option>Branding</option>
+        <option>Product Design</option>
+        <option>Social Media Designs</option>
+        <option>Not sure yet</option>
+      </select>
+      <label for="msg">Project details</label>
+      <textarea id="msg" name="Message" placeholder="Tell us a little about your project" required></textarea>
+      <button type="submit" class="btn btn-primary">Send Message</button>
+    </form>
+
+  </div>
+</section>
+
+</main>
+
+<!-- =================== FOOTER =================== -->
+<footer>
+  <div class="container">
+    <div class="foot">
+      <div>
+        <a href="#home" class="brand">
+          <svg viewBox="0 0 400 360" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <polygon fill="#00AEEB" points="173,0 220,28 228,138 0,294"/>
+            <polygon fill="#1C2BC2" points="231,21 398,318 351,345 252,297"/>
+            <polygon fill="#175925" points="100,242 351,358 10,358 10,304"/>
+          </svg>
+          <span>ASTA TECHNOLOGIES<small>LIMITED</small></span>
+        </a>
+        <p>Web design and development, branding, product design and social media designs.</p>
+      </div>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#work">Our Work</a></li>
+        <li><a href="#team">Team</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="copy">
+      <span>&copy; Asta Technologies Limited. All rights reserved.</span>
+      <span>Registered with the CAC, Nigeria &bull; RC 7912809</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
