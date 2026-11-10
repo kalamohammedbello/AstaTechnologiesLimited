@@ -114,16 +114,32 @@ header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.94);backdr
 
 /* ---------- Work / Portfolio ---------- */
 .work{background:var(--soft)}
-.work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-.project{background:#fff;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);transition:.3s}
-.project:hover{transform:translateY(-6px);box-shadow:0 24px 50px rgba(11,21,51,.09)}
-.project .thumb{aspect-ratio:4/3;background:linear-gradient(135deg,var(--a),var(--b));display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.92);font-weight:600;letter-spacing:.04em;text-align:center;padding:20px;overflow:hidden}
-.project .thumb img{width:100%;height:100%;object-fit:cover}
-.project .info{padding:20px 24px}
-.project h3{font-size:1rem;margin-bottom:2px}
-.project p{font-size:.82rem}
-.p1{--a:#00AEEB;--b:#1C2BC2}.p2{--a:#C89B5F;--b:#6B4E2E}.p3{--a:#39B54A;--b:#016B61}
-.p4{--a:#7A1017;--b:#2B0507}.p5{--a:#1C2BC2;--b:#0B1533}.p6{--a:#175925;--b:#0B1533}
+.work-label{font-size:.78rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan);margin:0 0 16px}
+.work-row{margin-bottom:52px}
+.work-row:last-child{margin-bottom:0}
+.work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.work-grid.four{grid-template-columns:repeat(4,1fr);gap:20px}
+.work-grid figure{margin:0}
+.shot{display:block;border-radius:16px;overflow:hidden;background:#fff;border:1px solid var(--line);transition:.3s}
+.shot:hover{transform:translateY(-6px);box-shadow:0 24px 50px rgba(11,21,51,.10)}
+.shot img{width:100%;height:auto;aspect-ratio:1/1;object-fit:cover}
+.work-grid.four .shot img{aspect-ratio:4/5}
+.work-grid figcaption,.work-note{font-size:.82rem;color:var(--text);margin-top:12px}
+
+/* ---------- Websites we built ---------- */
+.sites-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.site{display:block;background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;transition:.3s}
+.site:hover{transform:translateY(-6px);box-shadow:0 24px 50px rgba(11,21,51,.10)}
+.browser-bar{display:flex;gap:6px;padding:12px 16px;background:var(--soft);border-bottom:1px solid var(--line)}
+.browser-bar i{width:9px;height:9px;border-radius:50%;background:#D5DBE7}
+.site-thumb{aspect-ratio:16/10;background:linear-gradient(135deg,var(--a),var(--b));display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.9);font-weight:600;letter-spacing:.04em;text-align:center;padding:20px;overflow:hidden}
+.site-thumb img{width:100%;height:100%;object-fit:cover;object-position:top}
+.site-info{padding:22px 24px 26px}
+.site-info h3{font-size:1.05rem;margin-bottom:4px}
+.site-info p{font-size:.86rem;margin-bottom:14px}
+.site-info span{font-size:.85rem;font-weight:600;color:var(--blue)}
+.s1{--a:#00AEEB;--b:#1C2BC2}.s2{--a:#39B54A;--b:#175925}.s3{--a:#1C2BC2;--b:#0B1533}
+.soft-bg{background:var(--soft)}
 
 /* ---------- Process ---------- */
 .steps{display:grid;grid-template-columns:repeat(5,1fr);gap:20px;counter-reset:s}
@@ -187,7 +203,8 @@ footer p{font-size:.85rem;max-width:300px;margin-top:14px}
 @media (max-width:1000px){
   .services-grid,.team-grid,.why-grid{grid-template-columns:repeat(2,1fr)}
   .steps{grid-template-columns:repeat(3,1fr);row-gap:30px}
-  .work-grid{grid-template-columns:repeat(2,1fr)}
+  .work-grid.four{grid-template-columns:repeat(2,1fr)}
+  .sites-grid{grid-template-columns:repeat(2,1fr)}
 }
 @media (max-width:860px){
   section{padding:72px 0}
@@ -206,7 +223,8 @@ footer p{font-size:.85rem;max-width:300px;margin-top:14px}
   .menu-toggle:checked ~ .menu-icon span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 }
 @media (max-width:600px){
-  .services-grid,.team-grid,.why-grid,.work-grid,.row,.mv{grid-template-columns:1fr}
+  .services-grid,.team-grid,.why-grid,.work-grid,.sites-grid,.row,.mv{grid-template-columns:1fr}
+  .work-grid.four{grid-template-columns:1fr 1fr}
   .steps{grid-template-columns:1fr 1fr}
   .hero{padding:70px 0 70px}
   form{padding:26px}
@@ -236,6 +254,7 @@ footer p{font-size:.85rem;max-width:300px;margin-top:14px}
       <a href="#about">About</a>
       <a href="#services">Services</a>
       <a href="#work">Our Work</a>
+      <a href="#websites">Websites</a>
       <a href="#team">Team</a>
       <a href="#contact" class="btn btn-primary">Get in Touch</a>
     </nav>
@@ -371,10 +390,8 @@ footer p{font-size:.85rem;max-width:300px;margin-top:14px}
 
 <!-- =================== OUR WORK =================== -->
 <!--
-  HOW TO ADD YOUR OWN IMAGES:
-  Inside each ".thumb" box below, replace the text with an image tag, for example:
-  <div class="thumb p1"><img src="images/afrifusion.jpg" alt="Afrifusion Systems logo"></div>
-  Upload the picture into an "images" folder on your hosting, next to this index.html file.
+  The pictures below are loaded from an "images" folder that sits next to this index.html file.
+  To change a picture, upload a new file into that folder and update the file name in the src="" part.
 -->
 <section class="work" id="work">
   <div class="container">
@@ -384,42 +401,90 @@ footer p{font-size:.85rem;max-width:300px;margin-top:14px}
       <p>A look at some of the brands and products we have designed for our clients.</p>
     </div>
 
-    <div class="work-grid">
-      <article class="project">
-        <div class="thumb p1">Afrifusion Systems Ltd</div>
-        <div class="info"><h3>Afrifusion Systems Ltd</h3><p>Logo &amp; social media design</p></div>
-      </article>
+    <div class="work-row">
+      <h3 class="work-label">Logo &amp; Brand Identity</h3>
+      <div class="work-grid">
+        <figure><span class="shot"><img src="images/logo-afrifusion.jpg" alt="Afrifusion Systems Ltd logo" loading="lazy"></span><figcaption>Afrifusion Systems Ltd</figcaption></figure>
+        <figure><span class="shot"><img src="images/logo-gadanju.jpg" alt="Gadanju Luxury Brand logo" loading="lazy"></span><figcaption>Gadanju Luxury Brand</figcaption></figure>
+        <figure><span class="shot"><img src="images/logo-greenhills.jpg" alt="GreenHills logo" loading="lazy"></span><figcaption>GreenHills</figcaption></figure>
+      </div>
+    </div>
 
-      <article class="project">
-        <div class="thumb p2">Gadanju Luxury Brand</div>
-        <div class="info"><h3>Gadanju Luxury Brand</h3><p>Logo, flyer &amp; brand identity</p></div>
-      </article>
+    <div class="work-row">
+      <h3 class="work-label">Social Media &amp; Promotional Designs</h3>
+      <div class="work-grid">
+        <figure><span class="shot"><img src="images/social-gadanju.jpg" alt="Gadanju Luxury Brand promotional flyer" loading="lazy"></span><figcaption>Gadanju Luxury Brand</figcaption></figure>
+        <figure><span class="shot"><img src="images/social-afrifusion.jpg" alt="Afrifusion Systems Ltd social media design" loading="lazy"></span><figcaption>Afrifusion Systems Ltd</figcaption></figure>
+        <figure><span class="shot"><img src="images/social-greenhills.jpg" alt="GreenHills social media design" loading="lazy"></span><figcaption>GreenHills</figcaption></figure>
+      </div>
+    </div>
 
-      <article class="project">
-        <div class="thumb p3">GreenHills</div>
-        <div class="info"><h3>GreenHills</h3><p>Logo, colour palette &amp; social design</p></div>
-      </article>
+    <div class="work-row">
+      <h3 class="work-label">Product Promotion Designs</h3>
+      <div class="work-grid four">
+        <figure><span class="shot"><img src="images/product-fruit-parfait.jpg" alt="Fruit Parfait promotional design" loading="lazy"></span></figure>
+        <figure><span class="shot"><img src="images/product-shawarma.jpg" alt="Shawarma promotional design" loading="lazy"></span></figure>
+        <figure><span class="shot"><img src="images/product-smoothie.jpg" alt="Special Smoothie promotional design" loading="lazy"></span></figure>
+        <figure><span class="shot"><img src="images/product-zobo.jpg" alt="Special Zobo promotional design" loading="lazy"></span></figure>
+      </div>
+      <p class="work-note">Lighten Plus Grill &amp; Refreshment Joint</p>
+    </div>
+  </div>
+</section>
 
-      <article class="project">
-        <div class="thumb p4">Lighten Plus</div>
-        <div class="info"><h3>Lighten Plus Grill &amp; Refreshment Joint</h3><p>Product promotion designs</p></div>
-      </article>
+<!-- =================== WEBSITES WE BUILT =================== -->
+<!--
+  HOW TO ADD YOUR WEBSITES (3 cards below):
+  1. Replace the href="https://www.example.com" with the real website address.
+  2. Change the title and short description.
+  3. To show a screenshot, replace the text inside <div class="site-thumb ..."> with:
+     <img src="images/site-1.jpg" alt="Website name">
+     (take a screenshot of the website's homepage, save it as site-1.jpg and upload it to the images folder)
+-->
+<section id="websites">
+  <div class="container">
+    <div class="section-head center">
+      <span class="eyebrow">Web design</span>
+      <h2>Websites we have built</h2>
+      <p>Click any project to visit the live website and see our web design work for yourself.</p>
+    </div>
 
-      <article class="project">
-        <div class="thumb p5">Your project here</div>
-        <div class="info"><h3>Project title</h3><p>Short description</p></div>
-      </article>
+    <div class="sites-grid">
+      <a class="site" href="https://www.example.com" target="_blank" rel="noopener">
+        <div class="browser-bar"><i></i><i></i><i></i></div>
+        <div class="site-thumb s1">Website screenshot 1</div>
+        <div class="site-info">
+          <h3>Website Name One</h3>
+          <p>Short description of the website and what you built for the client.</p>
+          <span>Visit website &rarr;</span>
+        </div>
+      </a>
 
-      <article class="project">
-        <div class="thumb p6">Your project here</div>
-        <div class="info"><h3>Project title</h3><p>Short description</p></div>
-      </article>
+      <a class="site" href="https://www.example.com" target="_blank" rel="noopener">
+        <div class="browser-bar"><i></i><i></i><i></i></div>
+        <div class="site-thumb s2">Website screenshot 2</div>
+        <div class="site-info">
+          <h3>Website Name Two</h3>
+          <p>Short description of the website and what you built for the client.</p>
+          <span>Visit website &rarr;</span>
+        </div>
+      </a>
+
+      <a class="site" href="https://www.example.com" target="_blank" rel="noopener">
+        <div class="browser-bar"><i></i><i></i><i></i></div>
+        <div class="site-thumb s3">Website screenshot 3</div>
+        <div class="site-info">
+          <h3>Website Name Three</h3>
+          <p>Short description of the website and what you built for the client.</p>
+          <span>Visit website &rarr;</span>
+        </div>
+      </a>
     </div>
   </div>
 </section>
 
 <!-- =================== PROCESS =================== -->
-<section id="process">
+<section class="soft-bg" id="process">
   <div class="container">
     <div class="section-head center">
       <span class="eyebrow">How we work</span>
